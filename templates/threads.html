@@ -1,0 +1,34 @@
+<style>
+    .odd { background-color: #eee }
+    ul, ol { list-style: none }
+    li { padding: 10px }
+    dt { clear: both; font-weight: bold }
+    dd.tags span { background-color: #f92672; padding: 3px; float: right; margin: 3px; font-size: 80% }
+</style>
+<h1>NotMuch <small>(of a)</small> Webmail</h1>
+<p>This is a proof-of-concept for an AGPL GMail replacement, using <a href='http://notmuchmail.org'>notmuch</a> mail indexing and tagging, and django framework.</p>
+<ul>
+    {% for thread in threads %}
+    <li id='{{ thread.id }}' class='{% cycle 'odd' 'even' %}'>
+        <dl>
+            <dt class='subject'>{{ thread.subject }}</dt>
+            <dd class='tags'>
+            {% for tag in thread.tag_list %}
+            <span class='tag {{ tag }}'>{{ tag }}</span>
+            {% empty %}
+            <span class='notag'>No tags</span>
+            {% endfor %}
+            </dd>
+            <dd class='message-count'>{{ thread.message_count }} message(s)</dd>
+            <dd class='newest-date'>{{ thread.newest_date }}</dd>
+            <dd class='oldest-date'>{{ thread.oldest_date }}</dd>
+            <dd class='duration'>{{ thread.duration }}</dd>
+
+        </dl>
+    </li>
+    {% endfor %}
+</ul>
+
+<div id='license'>
+    <p>This software is AGPLv3. <a href='{% url download-targz %}'>Download source code</a>.</p>
+</div>

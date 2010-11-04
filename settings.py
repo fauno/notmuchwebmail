@@ -1,24 +1,14 @@
+# -*- coding: utf-8 -*-
 # Django settings for notmuchwebmail project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    ('Nicolás Reynolds', 'fauno@kiwwwi.com.ar'),
 )
 
 MANAGERS = ADMINS
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -27,7 +17,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -81,7 +71,12 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    "/srv/http/notmuchwebmail/templates"
 )
+
+import sys
+from os.path import abspath, dirname
+sys.path.insert(0, dirname(dirname(abspath(__file__))))
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -89,8 +84,28 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.humanize',
+    'django_agpl'
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
+
+import os
+import django_agpl
+
+# Base directory from which download tree will be generated
+AGPL_ROOT = os.path.dirname(__file__)
+
+# Prefix of generated filename
+AGPL_FILENAME_PREFIX = 'notmuchwebmail'
+
+# Directories to exclude from download tree (optional)
+AGPL_EXCLUDE_DIRS = django_agpl.EXCLUDE_DIRS + [r'^uploaded_media$']
+
+# Files to exclude from download tree (optional)
+AGPL_EXCLUDE_FILES = django_agpl.EXCLUDE_FILES + [r'^nuclear_launch_codes.py$']
+
+# Prefix to create inside download tree (optional)
+AGPL_TREE_PREFIX = 'notmuchwebmail'
