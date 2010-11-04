@@ -31,3 +31,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 * Interface not stuck as an one-page-only website (open views in a new tab, etc.);
 * PGP support;
 * Attachments have their own view;
+* LDAP authentication;
+* Each view does only one thing;
