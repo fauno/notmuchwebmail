@@ -6,7 +6,7 @@
     dd.tags span { background-color: #f92672; padding: 3px; float: right; margin: 3px; font-size: 80% }
 </style>
 <h1>NotMuch <small>(of a)</small> Webmail</h1>
-<p>This is a proof-of-concept for an AGPL GMail replacement, using <a href='http://notmuchmail.org'>notmuch</a> mail indexing and tagging, and django framework.</p>
+<p>This is a <strong>proof-of-concept</strong> for an AGPL GMail replacement, using <a href='http://notmuchmail.org'>notmuch</a> mail indexing and tagging and django framework.</p>
 <ul>
     {% for thread in threads %}
     <li id='{{ thread.id }}' class='{% cycle 'odd' 'even' %}'>
