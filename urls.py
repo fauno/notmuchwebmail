@@ -34,5 +34,7 @@ urlpatterns = patterns('',
     # (r'^admin/', include(admin.site.urls)),
 
     (r'^inbox/$', 'inbox.views.index'),
+    (r'^inbox/unread$', 'inbox.views.index'),
+    url(r'^pager/(?P<thread_id>[a-z0-9]+)$', 'pager.views.index', name='pager'),
     (r'^download/', include('django_agpl.urls'))
 )

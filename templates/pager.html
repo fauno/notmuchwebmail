@@ -1,0 +1,12 @@
+{% for message in messages %}
+<dl id='{{ message.id }}' class='message'>
+    {% for header, text in message.headers.items %}
+    <dt class='header {{ header|lower }}'>{{ header }}: {{ text }}</dt>
+    {% endfor %}
+    <dd class='body'>
+    <pre>
+    {{ message.body.0.content }}
+    </pre>
+    </dd>
+</dl>
+{% endfor %}

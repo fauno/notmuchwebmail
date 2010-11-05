@@ -11,7 +11,7 @@
     {% for thread in threads %}
     <li id='{{ thread.id }}' class='{% cycle 'odd' 'even' %}'>
         <dl>
-            <dt class='subject'>{{ thread.subject }}</dt>
+            <dt class='subject'><a href='{% url pager thread_id=thread.id %}'>{{ thread.subject }}</a></dt>
             <dd class='tags'>
             {% for tag in thread.tag_list %}
             <span class='tag {{ tag }}'>{{ tag }}</span>
@@ -30,5 +30,5 @@
 </ul>
 
 <div id='license'>
-    <p>This software is AGPLv3. <a href='{% url download-targz %}'>Download source code</a>.</p>
+    <p>This software is AGPLv3. <a href='{% url download-targz %}'>Download source code</a> or <a href='https://github.com/fauno/notmuchwebmail'>clone it</a>. </p>
 </div>
