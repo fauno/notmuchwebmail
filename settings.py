@@ -15,6 +15,7 @@
 # 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 # Django settings for notmuchwebmail project.
 
 DEBUG = True
@@ -125,3 +126,6 @@ AGPL_EXCLUDE_FILES = django_agpl.EXCLUDE_FILES + [r'^nuclear_launch_codes.py$']
 
 # Prefix to create inside download tree (optional)
 AGPL_TREE_PREFIX = 'notmuchwebmail'
+
+
+NOTMUCH_DIR = '/home/fauno/Mail/solar.general'

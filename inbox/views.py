@@ -16,11 +16,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from django.conf import settings
 from django.shortcuts import render_to_response
 import notmuch
 import time
 
-database = notmuch.Database('/home/fauno/Mail/solar.general')
+database = notmuch.Database(settings.NOTMUCH_DIR)
 
 def index(request):
     unread = notmuch.Query(database, 'tag:inbox and tag:unread')
