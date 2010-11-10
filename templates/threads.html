@@ -7,6 +7,7 @@
 </style>
 <h1>NotMuch <small>(of a)</small> Webmail</h1>
 <p>This is a <strong>proof-of-concept</strong> for an AGPL GMail replacement, using <a href='http://notmuchmail.org'>notmuch</a> mail indexing and tagging and django framework.</p>
+<p>This view is showing the latest 50 threads from a Maildir directory, which is a backup of <a href='mailto:solar.general@librelist.com'>solar.general at librelist</a> mail list. Links in the subject goes to a pager view of it's messages. <strong>Nothing else works.</strong> If you want to contribute, fork it <a href='https://github.com/fauno/notmuchwebmail'>on github</a>.</p>
 <ul>
     {% for thread in threads %}
     <li id='{{ thread.id }}' class='{% cycle 'odd' 'even' %}'>
