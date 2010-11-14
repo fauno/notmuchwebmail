@@ -24,7 +24,10 @@ import time
 database = notmuch.Database(settings.NOTMUCH_DIR)
 
 def index(request):
-    unread = notmuch.Query(database, 'tag:inbox and tag:unread')
+    return search(request, 'tag:inbox and tag:unread')
+
+def search(request, search_string):
+    unread = notmuch.Query(database, str(search_string))
     result = unread.search_threads()
 
     result_threads = []

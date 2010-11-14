@@ -3,6 +3,11 @@
     {% for header, text in message.headers.items %}
     <dt class='header {{ header|lower }}'>{{ header }}: {{ text }}</dt>
     {% endfor %}
+    <dt class='header tags'>Tags: 
+    {% for tag in message.tags %}
+        {% include "tag.html" %}
+    {% endfor %}
+    </dd>
     <dd class='body'>
     <pre>
     {{ message.body.0.content }}

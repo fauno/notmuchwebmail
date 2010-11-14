@@ -35,6 +35,7 @@ urlpatterns = patterns('',
 
     (r'^inbox/$', 'inbox.views.index'),
     (r'^inbox/unread$', 'inbox.views.index'),
+    url(r'^inbox/(?P<search_string>[a-zA-Z0-9: .+@]+)$', 'inbox.views.search', name='search'),
     url(r'^pager/(?P<thread_id>[a-z0-9]+)$', 'pager.views.index', name='pager'),
     (r'^download/', include('django_agpl.urls'))
 )

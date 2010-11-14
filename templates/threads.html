@@ -15,7 +15,7 @@
             <dt class='subject'><a href='{% url pager thread_id=thread.id %}'>{{ thread.subject }}</a></dt>
             <dd class='tags'>
             {% for tag in thread.tag_list %}
-            <span class='tag {{ tag }}'>{{ tag }}</span>
+                {% include "tag.html" %}
             {% empty %}
             <span class='notag'>No tags</span>
             {% endfor %}
