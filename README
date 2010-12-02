@@ -16,7 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 == Test site
-You can test it here: http://209.126.208.164:8080/inbox/ 
+You can test it here: http://notmuch.kiwwwi.com.ar/inbox/ 
 
 == Requirements
 * Notmuch with python bindings
